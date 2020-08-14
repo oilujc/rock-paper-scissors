@@ -1,0 +1,60 @@
+body {
+    background: radial-gradient(circle, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.header {
+    padding: .5rem 0px;
+    margin: 1rem;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 5px;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    width: 60px;
+    height: 42px;
+}
+
+.header .score {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 0 0.3rem;
+    color: hsl(229, 64%, 46%);
+    text-align: center;
+}
+
+.header .score .text {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.header .score .number {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 0;
+    color: hsl(229, 25%, 31%);
+}
+
+.main {
+    min-height: calc(100vh - 164px);
+}
+
+.footer {
+    padding: 1rem 0;
+}
+
+.footer button {
+    padding: 0.2rem 1rem;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid hsl(217, 16%, 45%);
+    color: hsl(217, 16%, 45%);
+    font-weight: 600;
+}
+
