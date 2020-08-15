@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="./css/styles.css">
 
@@ -33,20 +34,38 @@
         </div>
 
         <div class="row main">
-            <div class="col-4">
-                <img src="./images/icon-rock.svg" alt="Piedra">
+            <div class="col-6 d-flex align-items-center pl-5">
+                <button class="btn btn-blue" onclick="setValue('piedra');">
+                    <img src="./images/icon-rock.svg" alt="Piedra">
+                </button>
             </div>
-            <div class="col-4">
-                <img src="./images/icon-scissors.svg" alt="Tijeras">
+            <div class="col-6 d-flex align-items-center pl-4">
+                <button class="btn btn-yellow" onclick="setValue('tijera');">
+                    <img src="./images/icon-scissors.svg" alt="Tijeras">
+                </button>
             </div>
-            <div class="col-4">
-                <img src="./images/icon-paper.svg" alt="Papel">
+            <div class="col-12 d-flex justify-content-center">
+                <button class="btn btn-red" onclick="setValue('papel');">
+                    <img src="./images/icon-paper.svg" alt="Papel">
+                </button>
             </div>
         </div>
+    </div>
+    <div class="footer">
+        <button>RULES</button>
+    </div>
 
-        <div class="row footer">
-            <div class="col-12 d-flex justify-content-center">
-                <button >RULES</button>
+    <div class="modal" tabindex="-1" id="resultado">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
             </div>
         </div>
     </div>
@@ -62,6 +81,59 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+
+    <script>
+        console.log("Hola Devsign");
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function setValue(jugador) {
+            // console.log(jugador);
+
+            let pcResponse = getRandomInt(0, 3);
+            let message = '';
+
+            let values = ['piedra', 'papel', 'tijera'];
+
+ /*            console.log(pcResponse);
+            console.log(values[pcResponse]); */
+
+            if (jugador === 'piedra' && values[pcResponse] === 'papel') {
+                // codigo 
+                console.log('La computadora gana, '+ values[pcResponse]+' le gana a '+jugador);
+                message = 'La computadora gana, ' + values[pcResponse] + ' le gana a ' + jugador;
+            } else if (jugador === 'piedra' && values[pcResponse] === 'tijera') {
+                //  Codigo
+                console.log('El jugador gana, ' + jugador + ' le gana a ' + values[pcResponse]);
+                message = 'El jugador gana, ' + jugador + ' le gana a ' + values[pcResponse];
+            } else if (jugador === 'papel' && values[pcResponse] === 'piedra') {
+                //  Codigo
+                console.log('El jugador gana, '+ jugador+' le gana a '+ values[pcResponse]);
+                message = 'El jugador gana, ' + jugador + ' le gana a ' + values[pcResponse];
+            } else if (jugador === 'papel' && values[pcResponse] === 'tijera') {
+                //  Codigo
+                console.log('La computadora gana, ' + values[pcResponse] + ' le gana a ' + jugador);
+                message = 'La computadora gana, ' + values[pcResponse] + ' le gana a ' + jugador;
+            } else if (jugador === 'tijera' && values[pcResponse] === 'piedra') {
+                //  Codigo
+                console.log('La computadora gana, ' + values[pcResponse] + ' le gana a ' + jugador);
+                message = 'La computadora gana, ' + values[pcResponse] + ' le gana a ' + jugador;
+            } else if (jugador === 'tijera' && values[pcResponse] === 'papel') {
+                //  Codigo
+                console.log('El jugador gana, ' + jugador + ' le gana a ' + values[pcResponse]);
+                message = 'El jugador gana, ' + jugador + ' le gana a ' + values[pcResponse];
+            } else if (jugador === values[pcResponse]) {
+                console.log('Empate');
+                message = 'Empate';
+            }
+
+            $('#resultado .modal-body').html(message);
+            $('#resultado').modal('show');
+        }
+
+    </script>
 </body>
 
 </html>
